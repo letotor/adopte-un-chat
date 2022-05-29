@@ -64,4 +64,6 @@ Une fois que tu as terminé, crée une boucle for, qui boucle sur animalsToAdopt
  Il y a une carte pour chaque élément du tableau
 
 ## SOLUTION
-![adpote-un-chat](https://adopte-un-chat-dgwebcreation.netlify.app 'demo')
+[DEMO adpote-un-chat](https://adopte-un-chat-dgwebcreation.netlify.app 'demo')  
+![screenshot adpote-un-chat](https://imgur.com/iuU8EqSl.png 'demo')  
+
