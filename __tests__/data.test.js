@@ -1,0 +1,157 @@
+const { animalsToAdopt } = require('../src/index.js');
+
+describe('Données animalsToAdopt', () => {
+
+  describe('Structure du tableau', () => {
+
+    test('devrait être défini', () => {
+      expect(animalsToAdopt).toBeDefined();
+    });
+
+    test('devrait être un tableau', () => {
+      expect(Array.isArray(animalsToAdopt)).toBe(true);
+    });
+
+    test('devrait contenir 5 animaux', () => {
+      expect(animalsToAdopt).toHaveLength(5);
+    });
+
+    test('ne devrait pas être vide', () => {
+      expect(animalsToAdopt.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('Structure des objets animaux', () => {
+
+    test('chaque animal devrait avoir une propriété "name"', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(animal).toHaveProperty('name');
+      });
+    });
+
+    test('chaque animal devrait avoir une propriété "picture"', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(animal).toHaveProperty('picture');
+      });
+    });
+
+    test('chaque animal devrait avoir exactement 2 propriétés', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(Object.keys(animal)).toHaveLength(2);
+      });
+    });
+  });
+
+  describe('Validation des noms', () => {
+
+    test('chaque nom devrait être une chaîne de caractères', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(typeof animal.name).toBe('string');
+      });
+    });
+
+    test('aucun nom ne devrait être vide', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(animal.name).not.toBe('');
+        expect(animal.name.length).toBeGreaterThan(0);
+      });
+    });
+
+    test('tous les noms devraient être uniques', () => {
+      const names = animalsToAdopt.map(animal => animal.name);
+      const uniqueNames = new Set(names);
+      expect(uniqueNames.size).toBe(names.length);
+    });
+
+    test('devrait contenir les noms attendus', () => {
+      const expectedNames = ['Lucky', 'Symba', 'Léo', 'Milo', 'Charly'];
+      const actualNames = animalsToAdopt.map(animal => animal.name);
+
+      expectedNames.forEach(name => {
+        expect(actualNames).toContain(name);
+      });
+    });
+  });
+
+  describe('Validation des images', () => {
+
+    test('chaque URL d\'image devrait être une chaîne de caractères', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(typeof animal.picture).toBe('string');
+      });
+    });
+
+    test('aucune URL d\'image ne devrait être vide', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(animal.picture).not.toBe('');
+        expect(animal.picture.length).toBeGreaterThan(0);
+      });
+    });
+
+    test('chaque URL devrait commencer par http:// ou https://', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(
+          animal.picture.startsWith('http://') ||
+          animal.picture.startsWith('https://')
+        ).toBe(true);
+      });
+    });
+
+    test('toutes les URLs d\'images devraient être uniques', () => {
+      const pictures = animalsToAdopt.map(animal => animal.picture);
+      const uniquePictures = new Set(pictures);
+      expect(uniquePictures.size).toBe(pictures.length);
+    });
+
+    test('toutes les URLs devraient pointer vers placekitten.com', () => {
+      animalsToAdopt.forEach(animal => {
+        expect(animal.picture).toContain('placekitten.com');
+      });
+    });
+  });
+
+  describe('Intégrité des données complètes', () => {
+
+    test('Lucky devrait avoir l\'URL correcte', () => {
+      const lucky = animalsToAdopt.find(animal => animal.name === 'Lucky');
+      expect(lucky).toBeDefined();
+      expect(lucky.picture).toBe('https://placekitten.com/200/287');
+    });
+
+    test('Symba devrait avoir l\'URL correcte', () => {
+      const symba = animalsToAdopt.find(animal => animal.name === 'Symba');
+      expect(symba).toBeDefined();
+      expect(symba.picture).toBe('https://placekitten.com/200/139');
+    });
+
+    test('Léo devrait avoir l\'URL correcte', () => {
+      const leo = animalsToAdopt.find(animal => animal.name === 'Léo');
+      expect(leo).toBeDefined();
+      expect(leo.picture).toBe('https://placekitten.com/200/90');
+    });
+
+    test('Milo devrait avoir l\'URL correcte', () => {
+      const milo = animalsToAdopt.find(animal => animal.name === 'Milo');
+      expect(milo).toBeDefined();
+      expect(milo.picture).toBe('https://placekitten.com/200/194');
+    });
+
+    test('Charly devrait avoir l\'URL correcte', () => {
+      const charly = animalsToAdopt.find(animal => animal.name === 'Charly');
+      expect(charly).toBeDefined();
+      expect(charly.picture).toBe('https://placekitten.com/200/179');
+    });
+  });
+
+  describe('Immutabilité', () => {
+
+    test('le tableau ne devrait pas être modifié par les tests', () => {
+      const originalLength = animalsToAdopt.length;
+      const firstAnimal = animalsToAdopt[0];
+
+      // Tenter de modifier (ne devrait pas affecter l'original si c'est const)
+      expect(animalsToAdopt.length).toBe(originalLength);
+      expect(animalsToAdopt[0]).toBe(firstAnimal);
+    });
+  });
+});

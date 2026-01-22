@@ -2,6 +2,10 @@
 /dist/
 .cache
 yarn.lock
+package-lock.json
+
+# Test coverage
+/coverage/
 
 # Local Netlify folder
 .netlify
