@@ -63,7 +63,108 @@ Une fois que tu as terminé, crée une boucle for, qui boucle sur animalsToAdopt
  La carte contient tous les éléments
  Il y a une carte pour chaque élément du tableau
 
+## 🧪 Tests
+
+Ce projet inclut une suite de tests complète avec Jest :
+
+### Commandes disponibles
+
+```bash
+# Lancer tous les tests
+npm test
+
+# Lancer les tests en mode surveillance (watch)
+npm run test:watch
+
+# Générer un rapport de couverture de code
+npm run test:coverage
+```
+
+### Couverture de tests
+
+Le projet atteint une excellente couverture de code :
+- ✅ Statements: 97.43%
+- ✅ Branches: 87.5%
+- ✅ Functions: 100%
+- ✅ Lines: 97.43%
+
+Les tests couvrent :
+- **Tests unitaires** pour la fonction `createCard()`
+- **Tests de validation** des données `animalsToAdopt`
+- **Tests d'intégration** pour l'initialisation complète de l'application
+
+## 🚀 Déploiement sur Netlify
+
+### Déploiement automatique
+
+Le projet est configuré pour un déploiement automatique sur Netlify :
+
+1. **Connectez votre dépôt GitHub à Netlify**
+2. **Configuration automatique** : Le fichier `netlify.toml` configure tout automatiquement
+3. **Build et déploiement** : Netlify exécutera `npm run build` et publiera le dossier `dist/`
+
+### Configuration Netlify
+
+Le fichier `netlify.toml` inclut :
+- ✅ Commande de build automatique (`npm run build`)
+- ✅ Répertoire de publication (`dist`)
+- ✅ Headers de sécurité (X-Frame-Options, CSP, etc.)
+- ✅ Cache optimisé pour les assets statiques
+- ✅ Compression et minification automatique
+- ✅ Redirections pour SPA
+
+### Déploiement manuel
+
+```bash
+# Installer Netlify CLI
+npm install -g netlify-cli
+
+# Se connecter à Netlify
+netlify login
+
+# Déployer
+netlify deploy --prod
+```
+
+### Variables d'environnement
+
+Le projet utilise Node.js v18. La version est spécifiée dans le fichier `.nvmrc`.
+
+## 🛠️ Développement
+
+### Installation
+
+```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm start
+
+# Builder pour la production
+npm run build
+```
+
+### Structure du projet
+
+```
+adopte-un-chat/
+├── __tests__/              # Tests Jest
+│   ├── createCard.test.js  # Tests unitaires
+│   ├── data.test.js        # Tests de validation
+│   └── integration.test.js # Tests d'intégration
+├── src/
+│   ├── index.js            # Code JavaScript principal
+│   └── styles.css          # Styles CSS
+├── public/
+│   └── _redirects          # Redirections Netlify
+├── index.html              # Point d'entrée HTML
+├── jest.config.js          # Configuration Jest
+├── netlify.toml            # Configuration Netlify
+└── package.json            # Dépendances et scripts
+```
+
 ## SOLUTION
-[DEMO adpote-un-chat](https://adopte-un-chat-dgwebcreation.netlify.app 'demo')  
-![screenshot adpote-un-chat](https://imgur.com/iuU8EqSl.png 'demo')  
+[DEMO adpote-un-chat](https://adopte-un-chat-dgwebcreation.netlify.app 'demo')
+![screenshot adpote-un-chat](https://imgur.com/iuU8EqSl.png 'demo')
 
