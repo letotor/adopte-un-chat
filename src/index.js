@@ -2,23 +2,23 @@
 const animalsToAdopt = [
   {
     name: "Lucky",
-    picture: "https://placekitten.com/200/287"
+    picture: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=200&h=287&fit=crop"
   },
   {
     name: "Symba",
-    picture: "https://placekitten.com/200/139"
+    picture: "https://images.unsplash.com/photo-1573865526739-10c1de0ac5b0?w=200&h=200&fit=crop"
   },
   {
     name: "Léo",
-    picture: "https://placekitten.com/200/90"
+    picture: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=200&h=200&fit=crop"
   },
   {
     name: "Milo",
-    picture: "https://placekitten.com/200/194"
+    picture: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=200&h=200&fit=crop"
   },
   {
     name: "Charly",
-    picture: "https://placekitten.com/200/179"
+    picture: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop"
   }
 ];
 

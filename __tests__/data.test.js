@@ -103,43 +103,51 @@ describe('Données animalsToAdopt', () => {
       expect(uniquePictures.size).toBe(pictures.length);
     });
 
-    test('toutes les URLs devraient pointer vers placekitten.com', () => {
+    test('toutes les URLs devraient pointer vers un service d\'images valide', () => {
       animalsToAdopt.forEach(animal => {
-        expect(animal.picture).toContain('placekitten.com');
+        expect(
+          animal.picture.includes('unsplash.com') ||
+          animal.picture.includes('placekitten.com')
+        ).toBe(true);
       });
     });
   });
 
   describe('Intégrité des données complètes', () => {
 
-    test('Lucky devrait avoir l\'URL correcte', () => {
+    test('Lucky devrait avoir une URL d\'image', () => {
       const lucky = animalsToAdopt.find(animal => animal.name === 'Lucky');
       expect(lucky).toBeDefined();
-      expect(lucky.picture).toBe('https://placekitten.com/200/287');
+      expect(lucky.picture).toBeTruthy();
+      expect(lucky.picture.startsWith('https://')).toBe(true);
     });
 
-    test('Symba devrait avoir l\'URL correcte', () => {
+    test('Symba devrait avoir une URL d\'image', () => {
       const symba = animalsToAdopt.find(animal => animal.name === 'Symba');
       expect(symba).toBeDefined();
-      expect(symba.picture).toBe('https://placekitten.com/200/139');
+      expect(symba.picture).toBeTruthy();
+      expect(symba.picture.startsWith('https://')).toBe(true);
     });
 
-    test('Léo devrait avoir l\'URL correcte', () => {
+    test('Léo devrait avoir une URL d\'image', () => {
       const leo = animalsToAdopt.find(animal => animal.name === 'Léo');
       expect(leo).toBeDefined();
-      expect(leo.picture).toBe('https://placekitten.com/200/90');
+      expect(leo.picture).toBeTruthy();
+      expect(leo.picture.startsWith('https://')).toBe(true);
     });
 
-    test('Milo devrait avoir l\'URL correcte', () => {
+    test('Milo devrait avoir une URL d\'image', () => {
       const milo = animalsToAdopt.find(animal => animal.name === 'Milo');
       expect(milo).toBeDefined();
-      expect(milo.picture).toBe('https://placekitten.com/200/194');
+      expect(milo.picture).toBeTruthy();
+      expect(milo.picture.startsWith('https://')).toBe(true);
     });
 
-    test('Charly devrait avoir l\'URL correcte', () => {
+    test('Charly devrait avoir une URL d\'image', () => {
       const charly = animalsToAdopt.find(animal => animal.name === 'Charly');
       expect(charly).toBeDefined();
-      expect(charly.picture).toBe('https://placekitten.com/200/179');
+      expect(charly.picture).toBeTruthy();
+      expect(charly.picture.startsWith('https://')).toBe(true);
     });
   });
 

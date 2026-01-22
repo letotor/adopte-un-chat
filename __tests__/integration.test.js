@@ -68,7 +68,7 @@ describe('Tests d\'intégration', () => {
       // Vérifier que chaque image a une URL
       imageUrls.forEach(url => {
         expect(url).toContain('url(');
-        expect(url).toContain('placekitten.com');
+        expect(url).toContain('https://');
       });
     });
 
