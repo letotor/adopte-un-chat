@@ -59,7 +59,6 @@ function createCard(title, imageUrl) {
   cardBody.appendChild(cardButton);
 }
 
-/* Step 4: Create a for loop, for each element of the array, 
+/* Step 4: Create a for loop, for each element of the array,
  call the function createCard with the corresponding parameter */
-// Tu dois créer l'élément, puis ajouter la bonne classe, et enfin, ajouter l'élément à son parent.
-cards = animalsToAdopt.forEach(animal => createCard(animal.name, animal.picture));
+animalsToAdopt.forEach(animal => createCard(animal.name, animal.picture));
