@@ -77,7 +77,6 @@ a, a:link, a:visited{
     border-radius: 10px 10px 0 0;
     background-size: cover;
     background-position: center;
-    background-image: url("http://placekitten.com/200/300");
     height: 200px;
     width: 100%;
 }
